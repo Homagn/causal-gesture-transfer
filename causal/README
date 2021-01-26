@@ -1,0 +1,14 @@
+1.(if not pulled before- using general_ml container for this project)
+
+sudo docker pull homagni/general_ml
+
+(or if built locally first go to the recipes folder- cd ~/Docker_recipes/general_ml/)
+
+sudo docker build -t general_ml .
+
+
+2.(open new terminal and type- replace general_ml with just homagni/general_ml if pulled)
+
+sudo nvidia-docker run --rm -ti --mount type=bind,source=/home/homagni/causal,target=/causal --net=host --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --env="QT_X11_NO_MITSHM=1" general_ml
+
+(you should be inside the docker container now)
